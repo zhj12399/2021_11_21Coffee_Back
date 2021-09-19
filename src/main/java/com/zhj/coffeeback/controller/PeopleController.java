@@ -1,6 +1,5 @@
 package com.zhj.coffeeback.controller;
 
-import com.zhj.coffeeback.entity.Caffeine;
 import com.zhj.coffeeback.entity.People;
 import com.zhj.coffeeback.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;

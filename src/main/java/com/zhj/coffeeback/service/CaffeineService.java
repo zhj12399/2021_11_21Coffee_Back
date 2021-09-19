@@ -1,10 +1,7 @@
 package com.zhj.coffeeback.service;
 
 import com.zhj.coffeeback.entity.Caffeine;
-import com.zhj.coffeeback.entity.People;
 import com.zhj.coffeeback.entity.State;
-
-import java.util.Date;
 
 public interface CaffeineService
 {

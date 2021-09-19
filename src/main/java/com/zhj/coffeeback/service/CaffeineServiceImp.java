@@ -1,15 +1,12 @@
 package com.zhj.coffeeback.service;
 
 import com.zhj.coffeeback.entity.Caffeine;
-import com.zhj.coffeeback.entity.People;
 import com.zhj.coffeeback.entity.State;
 import com.zhj.coffeeback.mapper.CaffeineMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @Service
 public class CaffeineServiceImp implements CaffeineService

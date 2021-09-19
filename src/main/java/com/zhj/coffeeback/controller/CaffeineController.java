@@ -2,14 +2,10 @@ package com.zhj.coffeeback.controller;
 
 import com.zhj.coffeeback.entity.Caffeine;
 import com.zhj.coffeeback.entity.CaffeineBean;
-import com.zhj.coffeeback.entity.People;
 import com.zhj.coffeeback.entity.State;
 import com.zhj.coffeeback.service.CaffeineService;
-import com.zhj.coffeeback.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
 
 @RestController
 @CrossOrigin

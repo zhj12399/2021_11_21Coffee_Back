@@ -1,7 +1,6 @@
 package com.zhj.coffeeback.mapper;
 
 import com.zhj.coffeeback.entity.Caffeine;
-import com.zhj.coffeeback.entity.People;
 import com.zhj.coffeeback.entity.State;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
