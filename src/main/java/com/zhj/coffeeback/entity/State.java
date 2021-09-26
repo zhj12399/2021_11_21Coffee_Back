@@ -13,7 +13,7 @@ public class State
 
     }
 
-    public State(int id_, Timestamp time_, int caffeine_)
+    public State(int id_, Timestamp time_, double caffeine_)
     {
         this.id = id_;
         this.time = time_;
@@ -40,7 +40,7 @@ public class State
         this.id = id;
     }
 
-    public void setCaffeine(int caffeine)
+    public void setCaffeine(double caffeine)
     {
         this.caffeine = caffeine;
     }
