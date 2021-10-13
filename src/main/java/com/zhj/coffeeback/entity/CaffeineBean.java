@@ -1,5 +1,7 @@
 package com.zhj.coffeeback.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.sql.Timestamp;
 
 public class CaffeineBean
