@@ -14,6 +14,12 @@ public class PeopleServiceImp implements PeopleService
     PeopleMapper peopleMapper;
 
     @Override
+    public Boolean ExistPeople(int id)
+    {
+        return peopleMapper.existPeople(id) != 0;
+    }
+
+    @Override
     public String getPasswordByName(String name)
     {
         return peopleMapper.selectPasswordByName(name);
@@ -39,19 +45,20 @@ public class PeopleServiceImp implements PeopleService
     }
 
     @Override
-    public void updatePasswordById(int id,String password)
+    public void updatePasswordById(int id, String password)
     {
-        peopleMapper.updatePasswordById(password,id);
+        peopleMapper.updatePasswordById(password, id);
     }
 
     @Override
-    public void updateNameById(int id,String name)
+    public void updateNameById(int id, String name)
     {
-        peopleMapper.updateNameById(name,id);
+        peopleMapper.updateNameById(name, id);
     }
 
     @Override
-    public void deletePeopleById(int id){
+    public void deletePeopleById(int id)
+    {
         peopleMapper.deletePeoplePeopleList(id);
         peopleMapper.deletePeopleCoffeeList(id);
         peopleMapper.deletePeopleCaffeineList(id);

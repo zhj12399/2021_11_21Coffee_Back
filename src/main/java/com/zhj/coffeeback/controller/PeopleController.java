@@ -15,6 +15,12 @@ public class PeopleController
     @Autowired
     PeopleService peopleService;
 
+    @RequestMapping(value = "ExistPeople/{idstr:\\d+}", method = RequestMethod.POST)
+    public boolean ExistPeople(@PathVariable String idstr)
+    {
+        return peopleService.ExistPeople(Integer.parseInt(idstr));
+    }
+
     @RequestMapping(value = "JudgePassword", method = RequestMethod.POST)
     public int JudgePassword(@RequestBody People people)
     {//密码相同返回ID
@@ -64,7 +70,7 @@ public class PeopleController
 
     @RequestMapping(value = "updateNameById", method = RequestMethod.POST)
     public Boolean updateNameById(@RequestParam("id") int id,
-                               @RequestParam("name") String name)
+                                  @RequestParam("name") String name)
     {
         if (!peopleService.SameName(name))
         {
@@ -77,7 +83,7 @@ public class PeopleController
         }
     }
 
-    @RequestMapping(value = "deletePeopleById" ,method = RequestMethod.POST)
+    @RequestMapping(value = "deletePeopleById", method = RequestMethod.POST)
     public void deletePeopleById(@RequestParam("id") int id)
     {
         peopleService.deletePeopleById(id);

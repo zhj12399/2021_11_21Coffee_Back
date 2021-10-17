@@ -8,10 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan("com.zhj.coffeeback.mapper")
 public class CoffeebackApplication
 {
-
     public static void main(String[] args)
     {
         SpringApplication.run(CoffeebackApplication.class, args);
     }
-
 }

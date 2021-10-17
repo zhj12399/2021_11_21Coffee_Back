@@ -6,6 +6,7 @@ import java.util.Date;
 
 public interface PeopleService
 {
+    Boolean ExistPeople(int id);
     String getPasswordByName(String name);
     void addPeople(People people);
     void addPeoplecaffeinelist(People people);

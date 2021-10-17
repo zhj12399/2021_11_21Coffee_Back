@@ -9,6 +9,9 @@ import java.util.Date;
 @Component(value = "PeopleMapper")
 public interface PeopleMapper
 {
+    @Select("select count(*) from people where id=#{id}")
+    int existPeople(int id);
+
     @Select("select password from people where name=#{name}")
     String selectPasswordByName(String name);
 
