@@ -35,6 +35,7 @@ public class PeopleServiceImp implements PeopleService
     @Override
     public void addPeoplecaffeinelist(People people)
     {
+        peopleMapper.deletePeopleCaffeineList(people.getId());
         peopleMapper.addPeopleCaffeineList(people.getId());
     }
 
