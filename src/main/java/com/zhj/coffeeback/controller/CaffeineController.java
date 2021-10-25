@@ -18,11 +18,7 @@ public class CaffeineController
     @RequestMapping(value = "AddCaffeineRecord", method = RequestMethod.POST)
     public boolean addCaffeineRecord(@RequestBody CaffeineBean caffeineBean)
     {
-        if(caffeineService.addCaffeineRecord(caffeineBean.getCaffeine(), caffeineBean.getId()))
-        {
-            return true;
-        }
-        return false;
+        return caffeineService.addCaffeineRecord(caffeineBean.getCaffeine(), caffeineBean.getId());
     }
 
     @RequestMapping(value = "getStateById/{idstr:\\d+}", method = RequestMethod.POST)
@@ -34,7 +30,14 @@ public class CaffeineController
     @RequestMapping(value = "getCaffeineRecordById/{idstr:\\d+}", method = RequestMethod.POST)
     public Caffeine[] getCaffeineRecordById(@PathVariable String idstr)
     {
-        return caffeineService.getCaffeineRecord(Integer.parseInt(idstr));
+        if (caffeineService.ExistPeople(Integer.parseInt(idstr)))
+        {
+            return caffeineService.getCaffeineRecord(Integer.parseInt(idstr));
+        }
+        else
+        {
+            return new Caffeine[0];
+        }
     }
 
     @RequestMapping(value = "deleteCaffeineRecord", method = RequestMethod.POST)
@@ -47,12 +50,26 @@ public class CaffeineController
     public Caffeine[] getTodayCaffeineRecord(@RequestParam("id") int id,
                                              @RequestParam("time") String timestr)
     {
-        return caffeineService.getTodayCaffeineRecord(id, timestr);
+        if (caffeineService.ExistPeople(id))
+        {
+            return caffeineService.getTodayCaffeineRecord(id, timestr);
+        }
+        else
+        {
+            return new Caffeine[0];
+        }
     }
 
-    @RequestMapping(value = "getLastMonthRecord/{idstr:\\d+}" ,method = RequestMethod.POST)
+    @RequestMapping(value = "getLastMonthRecord/{idstr:\\d+}", method = RequestMethod.POST)
     public Caffeine[] getLastMonthRecord(@PathVariable String idstr)
     {
-        return caffeineService.getLastMonthRecord(Integer.parseInt(idstr));
+        if (caffeineService.ExistPeople(Integer.parseInt(idstr)))
+        {
+            return caffeineService.getLastMonthRecord(Integer.parseInt(idstr));
+        }
+        else
+        {
+            return new Caffeine[0];
+        }
     }
 }

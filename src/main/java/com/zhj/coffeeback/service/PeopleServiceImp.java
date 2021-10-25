@@ -29,13 +29,11 @@ public class PeopleServiceImp implements PeopleService
     public void addPeople(People people)
     {
         peopleMapper.insertaddPeople(new People(0, people.getName(), people.getPassword()));
-
     }
 
     @Override
     public void addPeoplecaffeinelist(People people)
     {
-        peopleMapper.deletePeopleCaffeineList(people.getId());
         peopleMapper.addPeopleCaffeineList(people.getId());
     }
 
