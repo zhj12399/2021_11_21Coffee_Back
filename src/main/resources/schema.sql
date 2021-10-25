@@ -1,6 +1,5 @@
 USE coffee;
-DROP TABLE IF EXISTS people;
-CREATE TABLE people
+CREATE TABLE IF NOT EXISTS people
 (
     id integer not null auto_increment,
     name char(255) not null,
@@ -9,8 +8,7 @@ CREATE TABLE people
 );
 ALTER table people AUTO_INCREMENT = 10000;
 
-DROP TABLE IF EXISTS coffee;
-CREATE TABLE coffee
+CREATE TABLE IF NOT EXISTS coffee
 (
     id integer not null,
     time timestamp,
