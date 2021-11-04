@@ -1,6 +1,7 @@
 package com.zhj.coffeeback.controller;
 
 import com.zhj.coffeeback.entity.People;
+import com.zhj.coffeeback.service.MailService;
 import com.zhj.coffeeback.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ public class PeopleController
 {
     @Autowired
     PeopleService peopleService;
+    MailService mailService;
 
     @RequestMapping(value = "ExistPeople/{idstr:\\d+}", method = RequestMethod.POST)
     public boolean ExistPeople(@PathVariable String idstr)
@@ -87,5 +89,11 @@ public class PeopleController
     public void deletePeopleById(@RequestParam("id") int id)
     {
         peopleService.deletePeopleById(id);
+    }
+
+    @RequestMapping(value = "SentPasswordMail", method = RequestMethod.POST)
+    public void SentPassword(@RequestParam("id") int id)
+    {
+        mailService.SendTextMail("zhj727534681@163.com","cds","123");
     }
 }
