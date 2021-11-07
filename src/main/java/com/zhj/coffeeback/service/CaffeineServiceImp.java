@@ -12,14 +12,7 @@ import java.sql.Timestamp;
 public class CaffeineServiceImp implements CaffeineService
 {
     @Autowired
-
     CaffeineMapper caffeineMapper;
-
-    @Override
-    public Boolean ExistPeople(int id)
-    {
-        return caffeineMapper.existPeople(id) != 0;
-    }
 
     @Override
     public boolean addCaffeineRecord(Caffeine caffeine, int id)

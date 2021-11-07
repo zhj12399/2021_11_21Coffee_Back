@@ -13,9 +13,6 @@ import java.util.Date;
 @Component(value = "CaffeineMapper")
 public interface CaffeineMapper
 {
-    @Select("select count(*) from people where id=#{id}")
-    int existPeople(int id);
-
     @Insert("insert into caffeine_#{id}(time,brand,type,size,percent,caffeine)" +
             "values(#{time},#{brand},#{type},#{size},#{percent},#{caffeine})")
     int addCaffeineRecord(Date time, String brand, String type, String size, double percent, double caffeine, int id);

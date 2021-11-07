@@ -15,6 +15,7 @@ public class PeopleController
 {
     @Autowired
     PeopleService peopleService;
+    @Autowired
     MailService mailService;
 
     @RequestMapping(value = "ExistPeople/{idstr:\\d+}", method = RequestMethod.POST)
@@ -92,8 +93,19 @@ public class PeopleController
     }
 
     @RequestMapping(value = "SentPasswordMail", method = RequestMethod.POST)
-    public void SentPassword(@RequestParam("id") int id)
+    public Boolean SentPassword(@RequestParam("username") String name)
     {
-        mailService.SendTextMail("zhj727534681@163.com","cds","123");
+        if (peopleService.ExistPeopleByName(name))
+        {
+            int user_id = peopleService.getIdByName(name);
+            String to = peopleService.GetEmailById(user_id);
+            String password = peopleService.GetPasswordById(user_id);
+            mailService.SendTextMail(to, "您请求找回的密码", "您的密码为：" + password);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

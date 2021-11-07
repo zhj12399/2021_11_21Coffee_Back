@@ -12,8 +12,14 @@ public interface PeopleMapper
     @Select("select count(*) from people where id=#{id}")
     int existPeople(int id);
 
+    @Select("select count(*) from people where name=#{name}")
+    int existPeopleByName(String name);
+
     @Select("select password from people where name=#{name}")
     String selectPasswordByName(String name);
+
+    @Select("select password from people where id=#{id}")
+    String SelectPasswordById(int id);
 
     @Select("select id from people where name=#{name}")
     int selectIdByName(String name);
@@ -21,8 +27,8 @@ public interface PeopleMapper
     @Select("select name from people where id=#{id}")
     String selectNameById(int id);
 
-    @Insert("insert into people(id,name,password)" +
-            "values(null,#{name},#{password})")
+    @Insert("insert into people(id,name,password,email)" +
+            "values(null,#{name},#{password},#{email})")
     void insertaddPeople(People people);
 
     @Insert("insert into coffee(id,time,caffeine)" +
@@ -58,4 +64,7 @@ public interface PeopleMapper
 
     @Delete("delete from coffee where id = #{id}")
     void deletePeopleCoffeeList(int id);
+
+    @Select("select email from people where id = #{id}")
+    String selectEmailById(int id);
 }

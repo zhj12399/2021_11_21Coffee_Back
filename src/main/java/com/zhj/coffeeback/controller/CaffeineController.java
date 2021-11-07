@@ -4,6 +4,7 @@ import com.zhj.coffeeback.entity.Caffeine;
 import com.zhj.coffeeback.entity.CaffeineBean;
 import com.zhj.coffeeback.entity.State;
 import com.zhj.coffeeback.service.CaffeineService;
+import com.zhj.coffeeback.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,8 @@ public class CaffeineController
 {
     @Autowired
     CaffeineService caffeineService;
+    @Autowired
+    PeopleService peopleService;
 
     @RequestMapping(value = "AddCaffeineRecord", method = RequestMethod.POST)
     public boolean addCaffeineRecord(@RequestBody CaffeineBean caffeineBean)
@@ -30,7 +33,7 @@ public class CaffeineController
     @RequestMapping(value = "getCaffeineRecordById/{idstr:\\d+}", method = RequestMethod.POST)
     public Caffeine[] getCaffeineRecordById(@PathVariable String idstr)
     {
-        if (caffeineService.ExistPeople(Integer.parseInt(idstr)))
+        if (peopleService.ExistPeople(Integer.parseInt(idstr)))
         {
             return caffeineService.getCaffeineRecord(Integer.parseInt(idstr));
         }
@@ -50,7 +53,7 @@ public class CaffeineController
     public Caffeine[] getTodayCaffeineRecord(@RequestParam("id") int id,
                                              @RequestParam("time") String timestr)
     {
-        if (caffeineService.ExistPeople(id))
+        if (peopleService.ExistPeople(id))
         {
             return caffeineService.getTodayCaffeineRecord(id, timestr);
         }
@@ -63,7 +66,7 @@ public class CaffeineController
     @RequestMapping(value = "getLastMonthRecord/{idstr:\\d+}", method = RequestMethod.POST)
     public Caffeine[] getLastMonthRecord(@PathVariable String idstr)
     {
-        if (caffeineService.ExistPeople(Integer.parseInt(idstr)))
+        if (peopleService.ExistPeople(Integer.parseInt(idstr)))
         {
             return caffeineService.getLastMonthRecord(Integer.parseInt(idstr));
         }

@@ -7,7 +7,9 @@ import java.util.Date;
 public interface PeopleService
 {
     Boolean ExistPeople(int id);
+    Boolean ExistPeopleByName(String name);
     String getPasswordByName(String name);
+    String GetPasswordById(int id);
     void addPeople(People people);
     void addPeoplecaffeinelist(People people);
     int getIdByName(String name);
@@ -18,4 +20,5 @@ public interface PeopleService
     String getNameById(int id);
     Boolean SameName(String name);
     int getnewId();
+    String GetEmailById(int id);
 }
